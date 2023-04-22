@@ -27,8 +27,8 @@ $status = "no";
 session_start(); //start the session
 //database details
 $db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
-$db_username = "id20240982_root";
-$db_pass = "1CvH@Re<xZdVqACG";
+$db_username = "root";
+$db_pass = "";
 $db_host = "localhost";
 $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
 $query = "SELECT * from user WHERE login_id = '$loginId'"; //select matching login_id from user table 

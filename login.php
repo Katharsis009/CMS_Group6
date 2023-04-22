@@ -10,10 +10,16 @@ $lUsername = $_POST['lUsername']; //variable for taken username
 $lPassword = $_POST['lPassword']; //variable for taken password
 
 //database details
+// $db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
+// $db_username = "id20240982_root";
+// $db_pass = "1CvH@Re<xZdVqACG";
+// $db_host = "localhost";
+
 $db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
-$db_username = "id20240982_root";
-$db_pass = "1CvH@Re<xZdVqACG";
+$db_username = "root";
+$db_pass = "";
 $db_host = "localhost";
+
 $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //connect to server
 $querylogin = "SELECT * from login WHERE username = '$lUsername'"; //select matching username from login table 
 $resultslogin = mysqli_query($con, $querylogin); //query the login table
