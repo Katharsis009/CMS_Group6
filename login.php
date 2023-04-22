@@ -27,7 +27,9 @@ $table_password = $row['password']; // the first password row is passed on to $t
 $table_id = $row['login_id']; // the first id row is passed on to $table_id, and so on until the query is finished
 }
 
-if(($lUsername == $table_users) && ($lPassword == $table_password)){ // checks if there are any matching fields
+//$lPassword == $table_password
+
+if(($lUsername == $table_users) && (password_verify($lPassword, $table_password))){ // checks if there are any matching fields
 
 //checks if login_id from LOGIN is matching with login_id from USER
 $queryverif = "SELECT * from user WHERE login_id = '$table_id'"; //select matching login_id from user table 

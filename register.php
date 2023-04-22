@@ -158,6 +158,7 @@ doRegister(); //function to start
 function doRegister(){ //start of register function
 $rUsername = $_POST['rUsername']; //variable for taken username
 $rPassword = $_POST['rPassword']; //variable for taken password
+$ePassword = password_hash($rPassword, PASSWORD_BCRYPT);
 $uFirstname = $_POST['firstname']; //variable for taken firstname
 $uMiddlename = $_POST['middlename']; //variable for taken middlename
 $uLastname = $_POST['lastname']; //variable for taken lastname
@@ -200,7 +201,7 @@ Print '<script>alert("Username has been taken!");</script>'; //Prompts the user 
 if($bool){ // checks if bool is true
 
 //insert data into table named LOGIN
-mysqli_query($con, "INSERT INTO login (username, password) VALUES('$rUsername', '$rPassword')"); //inserts the value to table users
+mysqli_query($con, "INSERT INTO login (username, password) VALUES('$rUsername', '$ePassword')"); //inserts the value to table users
 //end of inserting data into table named LOGIN
 
 //get loginid from LOGIN
