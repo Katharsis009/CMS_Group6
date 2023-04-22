@@ -97,36 +97,55 @@ padding: 50px 20px;
 <table>
 
 <tr>
-<td><input type = "text" name = "rUsername" required = "required" placeholder = "Username"/> <!-- REGISTER USERNAME -->
-<td><input type = "password" name = "rPassword" required = "required" placeholder = "Password" style= "width: 202%;"/><!-- REGISTER PASSWORD -->
+<td><input type = "text" name = "rUsername" required placeholder = "Username"/> <!-- REGISTER USERNAME -->
+<td><input type = "password" name = "rPassword" required placeholder = "Password" style= "width: 202%;"/><!-- REGISTER PASSWORD -->
 </tr>
 
 <tr>
-<td><input type = "text" name = "firstname" required = "required" placeholder = "First Name"/>
-<td><input type = "text" name = "middlename" required = "required" placeholder = "Middle Name"/>
-<td><input type = "text" name = "lastname" required = "required" placeholder = "Last Name"/>
+<td><input type = "text" name = "firstname" required placeholder = "First Name"/>
+<td><input type = "text" name = "middlename" placeholder = "Middle Name"/>
+<td><input type = "text" name = "lastname" required placeholder = "Last Name"/>
 </tr>
 
 <tr>
-<td><input type = "text" name = "gender" required = "required" placeholder = "Gender"/>
-<td><input type = "date" name = "birthday" required = "required"/>
-<td><input type = "text" name = "birthplace" required = "required" placeholder = "Birthplace"/>
+<td>
+  <input type = "radio" name = "gender" value="Male" required/>Male
+  <input type = "radio" name = "gender" value="Female"/>Female
+</td>
+<td><input type = "date" name = "birthday" required/>
+<td><input type = "text" name = "birthplace" required placeholder = "Birthplace"/>
 </tr>
 
 <tr> 
-<td><input type = "text" name = "occupation" required = "required" placeholder = "Occupation"/>
-<td><input type = "text" name = "status" required = "required" placeholder = "Status"/>
-<td><input type = "text" name = "nationality" required = "required" placeholder = "Nationality" /> 
+<td><input type = "text" name = "occupation" required placeholder = "Occupation"/>
+<td>
+  <table>
+    <tr>
+      <td>
+      <input type = "radio" name = "status" value="Single" required/>Single
+      <input type = "radio" name = "status" value="Married"/>Married
+      <input type = "radio" name = "status" value="Separated"/>Separated
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type = "radio" name = "status" value="Divorced"/>Divorced
+      <input type = "radio" name = "status" value="Widowed"/>Widowed
+      </td>
+    </tr>
+  </table>
+</td>
+<td><input type = "text" name = "nationality" required placeholder = "Nationality" /> 
 </tr>
 
 
 <tr> 
-<td><input type = "text" name = "phonenumber" required = "required" placeholder = "Phone Number" />
-<td><input type = "text" name = "emailadd" required = "required" placeholder = "Email Address" style= "width: 202%;"/>
+<td><input type="tel" name = "phonenumber" required placeholder = "Phone Number" pattern="+639[0-9]{10}" />
+<td><input type="email" name = "emailadd" required placeholder = "Email Address" style= "width: 202%;"/>
 </tr>
 
 <tr>
-<td><input type = "text" name = "streetadd" required = "required" placeholder = "Street Address" style= "width: 303%;"/>
+<td><input type = "text" name = "streetadd" required placeholder = "Street Address" style= "width: 303%;"/>
 </tr>
 
 <tr>
@@ -180,6 +199,7 @@ $db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
 $db_username = "id20240982_root";
 $db_pass = "1CvH@Re<xZdVqACG";
 $db_host = "localhost";
+
 $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //connect to server
 $querylogin = "SELECT * from login"; //select all from login table 
 $queryuser = "SELECT * from user"; //select all from user table 
