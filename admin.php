@@ -45,6 +45,20 @@ header("location:login.php"); // redirects if user is not logged in
 <div class ="w3-center">
 <h2> Account Verification </h2>
 </div>
+
+<form id="filterForm" action="admin.php" method="POST">
+  <label for="filter">Filter</label>
+  <input type = "radio" name = "filter" id="None" value="None" onclick="submitFilter()"/>None
+  <input type = "radio" name = "filter" id="Approved" value="Approved" onclick="submitFilter()"/>Approved
+  <input type = "radio" name = "filter" id="Rejected" value="Rejected" onclick="submitFilter()"/>Rejected
+</form>
+
+<script>
+  function submitFilter() {
+    document.getElementById("filterForm").submit();
+  }
+</script>
+
 <br><br>
 <!-- DISPLAY LIST OF CITIZEN USERS -->
 <table class="w3-table w3-striped w3-bordered w3-content w3-border">
@@ -70,8 +84,27 @@ header("location:login.php"); // redirects if user is not logged in
 
 <?php
 include('dbcon.php');
+?>
 
-$query = "SELECT * from user where account_type = 'Citizen'"; //filter display to citizen account types only
+<?php
+if(isset($_POST['filter'])) {
+  $filter = $_POST['filter'];
+
+  switch($filter) {
+    case "None":
+      echo "<h4>Current Filter: None</h4>";
+      $query = "SELECT * from user where account_type = 'Citizen'"; //filter display to citizen account types only
+      break;
+    case "Approved":
+      echo "<h4>Current Filter: Approved</h4>";
+      $query = "SELECT * from user where account_type = 'Citizen' and account_verification = 'Approved'"; //filter display to citizen account types only
+      break;
+    case "Rejected":
+      echo "<h4>Current Filter: Rejected</h4>";
+      $query = "SELECT * from user where account_type = 'Citizen' and account_verification = 'Rejected'"; //filter display to citizen account types only
+  }
+
+
 $results = mysqli_query($con, $query); //Query the users table
 
 
@@ -96,6 +129,7 @@ while($row = mysqli_fetch_array($results)){ //list all of citizen type users ?>
 </tr>
 
 <?php 
+}
 } ?>
 
 </table>
