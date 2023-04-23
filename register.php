@@ -180,8 +180,8 @@ function sendEmailNotification($username, $email) {
   $mail->SMTPAuth   = true;
 
   $mail->Host       = 'smtp.gmail.com';
-  $mail->Username   = 'complaint.management.system.CMS@gmail.com';
-  $mail->Password   = 'ygqsvauwxenigdyw';
+  $mail->Username   = ''; //TODO: 
+  $mail->Password   = '';
   
   $mail->SMTPSecure = "tls";
   $mail->Port       = 587;
