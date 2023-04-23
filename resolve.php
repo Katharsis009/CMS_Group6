@@ -1,25 +1,26 @@
 <?php
+include('dbcon.php');
 include('complaintlist.php');
 ?>
 <?php
 if (!empty($_POST["subject"]) || !empty($_POST["resolution"])){ //function works if fields are not empty
-doResolve(); //function to start
+doResolve($con); //function to start
 }
 
 $_SESSION['complaintid'] = $_REQUEST['id']; //retrieve the id from what row was approve selected
 
-function doResolve(){ //start of register function
+function doResolve($con){ //start of register function
 $rSubject = $_POST['subject']; //variable for taken username
 $rResolution = $_POST['resolution']; //variable for taken password
 $radminid = $_SESSION['loginid'];
 $id = $_SESSION['complaintid'];
 
 //insert into resolve database the details for citizen to view
-$db_name = "id20240982_deliverydb";
-$db_username = "id20240982_root";
-$db_pass = "1CvH@Re<xZdVqACG";
-$db_host = "localhost";
-$con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
+// $db_name = "id20240982_deliverydb";
+// $db_username = "id20240982_root";
+// $db_pass = "1CvH@Re<xZdVqACG";
+// $db_host = "localhost";
+// $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
 
 
 $query = "SELECT * from complaint"; 
@@ -45,13 +46,13 @@ mysqli_query($con, $update) or die(mysqli_error());
 
 //get user_id of admin that sent the resolution form
 
-$db_name2 = "id20240982_deliverydb";
-$db_username2 = "id20240982_root";
-$db_pass2 = "1CvH@Re<xZdVqACG";
-$db_host2 = "localhost";
-$con2 = mysqli_connect("$db_host2","$db_username2","$db_pass2", "$db_name2") or die(mysqli_error()); //Connecttoserver
+// $db_name2 = "id20240982_deliverydb";
+// $db_username2 = "id20240982_root";
+// $db_pass2 = "1CvH@Re<xZdVqACG";
+// $db_host2 = "localhost";
+// $con2 = mysqli_connect("$db_host2","$db_username2","$db_pass2", "$db_name2") or die(mysqli_error()); //Connecttoserver
 $queryuser = "SELECT * from user"; 
-$resultuser = mysqli_query($con2, $queryuser) or die ( mysqli_error()); 
+$resultuser = mysqli_query($con, $queryuser) or die ( mysqli_error()); 
 $rowuser = mysqli_fetch_assoc($resultuser);
 
 while($rowuser = mysqli_fetch_array($resultuser)){
@@ -65,7 +66,7 @@ $newloginId = $table_uuserid;
 
 $newuserid = $_SESSION['newuserid'];
 //insert into resolve database regarding details of resolution
-mysqli_query($con2, "INSERT INTO resolve (subject, resolution, user_id, admin_id, complaint_id) VALUES('$rSubject', '$rResolution', '$newuserid', '$newloginId', '$id')"); //inserts the value to table complaint
+mysqli_query($con, "INSERT INTO resolve (subject, resolution, user_id, admin_id, complaint_id) VALUES('$rSubject', '$rResolution', '$newuserid', '$newloginId', '$id')"); //inserts the value to table complaint
 //end of getting admin's user_id;
 
 Print '<script>alert("Resolution has been sent!");</script>'; //prompts the user if successful

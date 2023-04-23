@@ -69,11 +69,8 @@ header("location:login.php"); // redirects if user is not logged in
 </tr>
 
 <?php
-$db_name = "id20240982_deliverydb";
-$db_username = "id20240982_root";
-$db_pass = "1CvH@Re<xZdVqACG";
-$db_host = "localhost";
-$con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
+include('dbcon.php');
+
 $query = "SELECT * from user where account_type = 'Citizen'"; //filter display to citizen account types only
 $results = mysqli_query($con, $query); //Query the users table
 

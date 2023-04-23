@@ -1,4 +1,7 @@
-<?php error_reporting(E_ERROR | E_PARSE);
+<?php 
+include('dbcon.php');
+
+error_reporting(E_ERROR | E_PARSE);
 session_start(); //starts the session
 if($_SESSION['loginid'] != ""){ //checks if user is logged in
 $loginId = $_SESSION['loginid'];
@@ -24,11 +27,11 @@ $status = "no";
   <?php error_reporting(E_ERROR | E_PARSE);
 session_start(); //start the session
 //database details
-$db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
-$db_username = "id20240982_root";
-$db_pass = "1CvH@Re<xZdVqACG";
-$db_host = "localhost";
-$con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
+// $db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
+// $db_username = "id20240982_root";
+// $db_pass = "1CvH@Re<xZdVqACG";
+// $db_host = "localhost";
+// $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
 $query = "SELECT * from user WHERE login_id = '$loginId'"; //select matching login_id from user table 
 $results = mysqli_query($con, $query); //Query the user table
 $exists = mysqli_num_rows($results); //Checks if login_id exists

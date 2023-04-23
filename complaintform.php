@@ -32,14 +32,17 @@ header("location:login.php"); // redirects if user is not logged in
     </head>
 
     <body>
-	<?php error_reporting(E_ERROR | E_PARSE);
+	<?php
+  include('dbcon.php');
+  
+  error_reporting(E_ERROR | E_PARSE);
 	session_start(); //start the session
-	//database details
-	$db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
-	$db_username = "id20240982_root";
-	$db_pass = "1CvH@Re<xZdVqACG";
-	$db_host = "localhost";
-	$con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
+	// //database details
+	// $db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
+	// $db_username = "id20240982_root";
+	// $db_pass = "1CvH@Re<xZdVqACG";
+	// $db_host = "localhost";
+	// $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
 	$query = "SELECT * from user WHERE login_id = '$loginId'"; //select matching login_id from user table 
 	$results = mysqli_query($con, $query); //Query the user table
 	$exists = mysqli_num_rows($results); //Checks if login_id exists
@@ -178,11 +181,11 @@ if ($status == "no"){ //if there is no user logged in
 
         //database details
         $bool = true;
-        $db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
-        $db_username = "id20240982_root";
-        $db_pass = "1CvH@Re<xZdVqACG";
-        $db_host = "localhost";
-        $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //connect to server
+        // $db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
+        // $db_username = "id20240982_root";
+        // $db_pass = "1CvH@Re<xZdVqACG";
+        // $db_host = "localhost";
+        // $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //connect to server
         $queryuser = "SELECT * from user"; //select all from user table 
         $resultsuser = mysqli_query($con, $queryuser); //query the user table
 
@@ -225,11 +228,11 @@ if ($status == "no"){ //if there is no user logged in
                     </tr>
 
                         <?php
-                        $db_name = "id20240982_deliverydb";
-                        $db_username = "id20240982_root";
-                        $db_pass = "1CvH@Re<xZdVqACG";
-                        $db_host = "localhost";
-                        $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
+                        // $db_name = "id20240982_deliverydb";
+                        // $db_username = "id20240982_root";
+                        // $db_pass = "1CvH@Re<xZdVqACG";
+                        // $db_host = "localhost";
+                        // $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
                         $query = "SELECT * from complaint where status = 'Resolved'"; //filter display to resolved cases only
                         $queryuser = "SELECT * from user"; //filter display to resolved cases only
                         $results = mysqli_query($con, $query); //Query the users table

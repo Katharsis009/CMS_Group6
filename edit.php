@@ -1,12 +1,14 @@
 <?php
+include('dbcon.php');
+
 session_start();
 if($_SESSION['loginid']){ //checks if user is logged in
 $id = $_SESSION['loginid'];
-$db_name = "id20240982_deliverydb";
-$db_username = "id20240982_root";
-$db_pass = "1CvH@Re<xZdVqACG";
-$db_host = "localhost";
-$con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
+// $db_name = "id20240982_deliverydb";
+// $db_username = "id20240982_root";
+// $db_pass = "1CvH@Re<xZdVqACG";
+// $db_host = "localhost";
+// $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //Connect to server
 $query = "SELECT * from user where login_id='".$id."'"; 
 $result = mysqli_query($con, $query) or die ( mysqli_error());
 $row = mysqli_fetch_assoc($result);

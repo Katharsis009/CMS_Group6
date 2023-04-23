@@ -163,7 +163,10 @@ padding: 50px 20px;
 </form> <!-- END OF FORM -->
 
 <!-- Start of PHP--> 
-<?php error_reporting(E_ERROR | E_PARSE);
+<?php 
+include('dbcon.php');
+
+error_reporting(E_ERROR | E_PARSE);
 session_start(); //session start
 if (!empty($_POST["rUsername"]) || !empty($_POST["rPassword"]) || !empty($_POST["firstname"]) || 
 	!empty($_POST["middlename"]) || !empty($_POST["lastname"]) || !empty($_POST["gender"]) || 
@@ -195,18 +198,7 @@ $uAccver = "Rejected"; //variable for taken account verification (BY DEFAULT: RE
 
 //database details
 $bool = true;
-// $db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
-// $db_username = "id20240982_root";
-// $db_pass = "1CvH@Re<xZdVqACG";
-// $db_host = "localhost";
 
-
-$db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
-$db_username = "root";
-$db_pass = "";
-$db_host = "localhost";
-
-$con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //connect to server
 $querylogin = "SELECT * from login"; //select all from login table 
 $queryuser = "SELECT * from user"; //select all from user table 
 $resultslogin = mysqli_query($con, $querylogin); //query the login table

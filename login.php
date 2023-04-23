@@ -1,11 +1,14 @@
-<?php error_reporting(E_ERROR | E_PARSE);
+<?php 
+include('dbcon.php');
+
+error_reporting(E_ERROR | E_PARSE);
 session_start(); //start the session
 if (!empty($_POST["lUsername"]) || !empty($_POST["lPassword"])){ //function works if fields are not empty
-doLogin();
+doLogin($con);
 }
 
 
-function doLogin(){ //start of login function
+function doLogin($con){ //start of login function
 $lUsername = $_POST['lUsername']; //variable for taken username
 $lPassword = $_POST['lPassword']; //variable for taken password
 
@@ -15,12 +18,12 @@ $lPassword = $_POST['lPassword']; //variable for taken password
 // $db_pass = "1CvH@Re<xZdVqACG";
 // $db_host = "localhost";
 
-$db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
-$db_username = "root";
-$db_pass = "";
-$db_host = "localhost";
+// $db_name = "id20240982_deliverydb"; //DATABASE NAME FOR THE PROJECT
+// $db_username = "root";
+// $db_pass = "";
+// $db_host = "localhost";
 
-$con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //connect to server
+// $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or die(mysqli_error()); //connect to server
 $querylogin = "SELECT * from login WHERE username = '$lUsername'"; //select matching username from login table 
 $resultslogin = mysqli_query($con, $querylogin); //query the login table
 $existslogin = mysqli_num_rows($resultslogin); //Checks if username exists
