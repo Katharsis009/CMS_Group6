@@ -166,6 +166,45 @@ padding: 50px 20px;
 <?php 
 include('dbcon.php');
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+
+function sendEmailNotification($username, $email) {
+  $mail = new PHPMailer(true);
+  //$mail->SMTPDebug = 2;
+  $mail->isSMTP();
+  $mail->SMTPAuth   = true;
+
+  $mail->Host       = 'smtp.gmail.com';
+  $mail->Username   = 'complaint.management.system.CMS@gmail.com';
+  $mail->Password   = 'ygqsvauwxenigdyw';
+  
+  $mail->SMTPSecure = "tls";
+  $mail->Port       = 587;
+
+  $mail->setFrom('complaint.management.system.CMS@gmail.com', 'CMS');
+  $mail->addAddress($email);
+
+  $mail->isHTML(true);
+  $mail->Subject = 'Successful Registration to CMS';
+
+  $email_template = "
+    <h4>Email: <h4>" . $email . "
+    <h4>Username: <h4>" . $username . "
+    <h2>You have successfully registered to CMS.</h2>
+    <h3>Kindly wait for account approval.</h3>
+  ";
+
+  $mail->Body = $email_template;
+  $mail->send();
+
+  echo "Message has been sent.";
+}
+
 error_reporting(E_ERROR | E_PARSE);
 session_start(); //session start
 if (!empty($_POST["rUsername"]) || !empty($_POST["rPassword"]) || !empty($_POST["firstname"]) || 
@@ -174,10 +213,10 @@ if (!empty($_POST["rUsername"]) || !empty($_POST["rPassword"]) || !empty($_POST[
 	!empty($_POST["nationality"]) || !empty($_POST["occupation"]) || !empty($_POST["phonenumber"]) || 
 	!empty($_POST["emailadd"]) || !empty($_POST["streetadd"])){ //function works if fields are not empty
     
-doRegister(); //function to start
+doRegister($con); //function to start
 }
 
-function doRegister(){ //start of register function
+function doRegister($con){ //start of register function
 $rUsername = $_POST['rUsername']; //variable for taken username
 $rPassword = $_POST['rPassword']; //variable for taken password
 $ePassword = password_hash($rPassword, PASSWORD_BCRYPT);
@@ -237,6 +276,7 @@ mysqli_query($con, "INSERT INTO user (first_name, middle_name, last_name , gende
 //end of inserting data into table named USER
 							
 Print '<script>alert("Successfully Registered!");</script>'; //prompts the user if successful
+sendEmailNotification($rUsername, $uEmailadd);
 $bool = false; // sets bool to false
 header("location: login.php"); // redirects the user to the login page
 }
