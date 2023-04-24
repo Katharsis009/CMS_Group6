@@ -63,6 +63,7 @@ padding: 50px 20px;
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href ="LogoW.png" type = "image/x-icon"> <!-- BROWSER TAB ICON -->
 <title> Registration Page</title>
 <center>
 <img src="LogoW.png" alt="image"></center>
@@ -150,7 +151,7 @@ padding: 50px 20px;
 
 <tr>
 <td>
-<td><input type="submit" name ="rSubmit" value="Register"/></td> <!-- REGISTER BUTTON -->
+<td><input type="submit" name ="rSubmit" value="Register" onclick="return confirm('All information we collect shall be kept private and confidential by Barangay Philam Council and shall be used solely for legal purposes as mandated by the Data Privacy Act and other relevant laws. Information that are matters of public interest, however, may be disclosed to the public subject to applicable laws, rules, and regulations. Do you wish to continue registering?');"/></td> <!-- REGISTER BUTTON -->
 </tr>
 
 </table>
@@ -180,8 +181,8 @@ function sendEmailNotification($username, $email) {
   $mail->SMTPAuth   = true;
 
   $mail->Host       = 'smtp.gmail.com';
-  $mail->Username   = ''; //TODO: 
-  $mail->Password   = '';
+  $mail->Username   = 'complaint.management.system.CMS@gmail.com'; //TODO: 
+  $mail->Password   = 'ygqsvauwxenigdyw';
   
   $mail->SMTPSecure = "tls";
   $mail->Port       = 587;
@@ -255,8 +256,10 @@ Print '<script>alert("Username has been taken!");</script>'; //Prompts the user 
 }
 //end of checking for duplicate usernames
 
-if($bool){ // checks if bool is true
 
+
+
+if($bool){ // checks if bool is true
 //insert data into table named LOGIN
 mysqli_query($con, "INSERT INTO login (username, password) VALUES('$rUsername', '$ePassword')"); //inserts the value to table users
 //end of inserting data into table named LOGIN
