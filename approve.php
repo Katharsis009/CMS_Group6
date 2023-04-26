@@ -15,13 +15,13 @@ function sendEmailNotification($email) {
   $mail->SMTPAuth   = true;
 
   $mail->Host       = 'smtp.gmail.com';
-  $mail->Username   = ''; //TODO:
-  $mail->Password   = '';
+  $mail->Username   = 'complaintmanagementsystem123@gmail.com'; //TODO: 
+  $mail->Password   = 'duxwpgfeiptdbklz';
   
   $mail->SMTPSecure = "tls";
   $mail->Port       = 587;
 
-  $mail->setFrom('complaint.management.system.CMS@gmail.com', 'CMS');
+  $mail->setFrom('complaintmanagementsystem123@gmail.com', 'CMS');
   $mail->addAddress($email);
 
   $mail->isHTML(true);
@@ -57,7 +57,7 @@ mysqli_query($con, $update) or die(mysqli_error());
 sendEmailNotification($row["email_add"]);
 
 header("location:admin.php"); //redirect to admin.php to refresh
-
+exit();
 ?>
 
 </body>

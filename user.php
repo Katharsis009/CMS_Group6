@@ -26,7 +26,7 @@ header("location:login.php"); // redirects if user is not logged in
 <link rel="icon" href ="LogoW.png" type = "image/x-icon"> <!-- BROWSER TAB ICON -->
 </head>
 
-<body>
+<body id="myPage">
 <?php error_reporting(E_ERROR | E_PARSE);
 session_start(); //start the session
 //database details

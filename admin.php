@@ -23,7 +23,7 @@ header("location:login.php"); // redirects if user is not logged in
 <link rel="icon" href ="LogoW.png" type = "image/x-icon"> <!-- BROWSER TAB ICON -->
 </head>
 
-<body>
+<body id="myPage">
 <div class="w3-top" style = "position: static;">
 <div class="w3-bar w3-theme-d5 w3-left-align">
 <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>

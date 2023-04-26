@@ -24,7 +24,7 @@ $status = "no";
     <title>Contact Us</title>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
+  <body id="myPage">
   <?php error_reporting(E_ERROR | E_PARSE);
 session_start(); //start the session
 //database details

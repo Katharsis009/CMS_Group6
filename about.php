@@ -28,7 +28,7 @@ $status = "no";
 </center>
 </head>
 
-<body>
+<body id="myPage">
 <?php 
 include('dbcon.php');
 
