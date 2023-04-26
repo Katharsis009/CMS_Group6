@@ -30,7 +30,7 @@ header("location:login.php"); // redirects if user is not logged in
         <title> Complaint Form </title>
     </head>
 
-    <body>
+    <body id="myPage">
 	<?php
   include('dbcon.php');
   
@@ -167,11 +167,11 @@ if ($status == "no"){ //if there is no user logged in
         <?php error_reporting(E_ERROR | E_PARSE);
         session_start(); //session start
         if (!empty($_POST["subject"]) || !empty($_POST["details"])){ //function works if fields are not empty
-        doRegister(); //function to start
+        doRegister($con); //function to start
         }
 
 
-        function doRegister(){ //start of register function
+        function doRegister($con){ //start of register function
         $cSubject = $_POST['subject']; //variable for taken username
         $cDetails = $_POST['details']; //variable for taken password
         $loginId = $_SESSION['loginid'];

@@ -40,8 +40,12 @@ $_SESSION['newuserid'] = $ruserid;
 //end of getting user_id
 
 //set complaint status to approved
-$update = "update complaint set status = '". "Resolved" ."' where complaint_id = '".$id."'"; 
+$transfer = 'INSERT INTO complaint_archive (complaint_id, user_id, subject, details, first_name, middle_name, last_name, street_add, status) SELECT complaint_id, user_id, subject, details, first_name, middle_name, last_name, street_add, status FROM complaint where complaint_id = '.$id.''; 
+mysqli_query($con, $transfer) or die(mysqli_error());
+
+$update = "update complaint_archive set status = '". "Resolved" ."' where complaint_id = '".$id."'"; 
 mysqli_query($con, $update) or die(mysqli_error());
+
 // end of setting complaint status
 
 //get user_id of admin that sent the resolution form
@@ -68,6 +72,8 @@ $newuserid = $_SESSION['newuserid'];
 //insert into resolve database regarding details of resolution
 mysqli_query($con, "INSERT INTO resolve (subject, resolution, user_id, admin_id, complaint_id) VALUES('$rSubject', '$rResolution', '$newuserid', '$newloginId', '$id')"); //inserts the value to table complaint
 //end of getting admin's user_id;
+
+mysqli_query($con, "DELETE FROM complaint WHERE complaint_id = '".$id."'");
 
 Print '<script>alert("Resolution has been sent!");</script>'; //prompts the user if successful
 header("location: complaintlist.php"); // redirects the user to the complaintlist page
@@ -188,7 +194,7 @@ header("location: complaintlist.php"); // redirects the user to the complaintlis
         }
     </style>
 
-    <body>
+    <body id="myPage">
         <!-- RESOLUTION FORM -->
         <form action = "resolve.php" id = "resolve" method="POST"> <!-- START OF FORM -->
             <div class="wrapper w3-content">

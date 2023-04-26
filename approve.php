@@ -48,7 +48,7 @@ $row = mysqli_fetch_assoc($result);
 <title>Approve User</title>
 </head>
 
-<body>
+<body id="myPage">
 <?php error_reporting(E_ERROR | E_PARSE);
 //set account_verification to approved
 $update = "update user set account_verification = '". "Approved" ."' where user_id = '".$id."'"; 
