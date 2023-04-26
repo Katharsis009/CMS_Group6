@@ -202,83 +202,15 @@ padding: 50px 20px;
       </div>
     </div>
 
-
-
-
-
-
-<form action = "register.php" method="POST"> <!-- START OF FORM -->
+<form action = "register.php" method="POST"> 
 <center>
-
-<fieldset style="text-indent:-20px; width: 65%; padding: 1.5%;"> 
-<br />
-<br />
-<table>
-
-<tr>
-<td><input type = "text" name = "rUsername" required placeholder = "Username"/> <!-- REGISTER USERNAME -->
-<td><input type = "password" name = "rPassword" required placeholder = "Password" style= "width: 202%;"/><!-- REGISTER PASSWORD -->
-</tr>
-
-<tr>
-<td><input type = "text" name = "firstname" required placeholder = "First Name"/>
-<td><input type = "text" name = "middlename" placeholder = "Middle Name"/>
-<td><input type = "text" name = "lastname" required placeholder = "Last Name"/>
-</tr>
-
-<tr>
-<td>
-  <input type = "radio" name = "gender" value="Male" required/>Male
-  <input type = "radio" name = "gender" value="Female"/>Female
-</td>
-<td><input type = "date" name = "birthday" required/>
-<td><input type = "text" name = "birthplace" required placeholder = "Birthplace"/>
-</tr>
-
-<tr> 
-<td><input type = "text" name = "occupation" required placeholder = "Occupation"/>
-<td>
-  <table>
-    <tr>
-      <td>
-      <input type = "radio" name = "status" value="Single" required/>Single
-      <input type = "radio" name = "status" value="Married"/>Married
-      <input type = "radio" name = "status" value="Separated"/>Separated
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type = "radio" name = "status" value="Divorced"/>Divorced
-      <input type = "radio" name = "status" value="Widowed"/>Widowed
-      </td>
-    </tr>
-  </table>
-</td>
-<td><input type = "text" name = "nationality" required placeholder = "Nationality" /> 
-</tr>
-
-
-<tr> 
-<td><input type="tel" name = "phonenumber" required placeholder = "Phone Number" pattern="+639[0-9]{10}" />
-<td><input type="email" name = "emailadd" required placeholder = "Email Address" style= "width: 202%;"/>
-</tr>
-
-<tr>
-<td><input type = "text" name = "streetadd" required placeholder = "Street Address" style= "width: 303%;"/>
-</tr>
-
-<tr>
-<td>
-<td><input type="submit" name ="rSubmit" value="Register" onclick="return confirm('All information we collect shall be kept private and confidential by Barangay Philam Council and shall be used solely for legal purposes as mandated by the Data Privacy Act and other relevant laws. Information that are matters of public interest, however, may be disclosed to the public subject to applicable laws, rules, and regulations. Do you wish to continue registering?');"/></td> <!-- REGISTER BUTTON -->
-</tr>
-
-</table>
 <a href = 'login.php'> <p> Have an Account? Login Here! </p></a></td> <!-- REDIRECT TO LOGIN -->
-<a href = 'index.php'> <p> Return to Home </p></a></td> <!-- REDIRECT TO Home Page -->
+<a href = 'index.php'> <p> Return to Home </p></a></td> <!-- REDIRECT TO Home Page -->  
 </center>
-</fieldset>
-	<br />
-	<br />
+<br>
+<br>
+<!-- START OF FORM -->
+
 </form> <!-- END OF FORM -->
 
 <!-- Start of PHP--> 
