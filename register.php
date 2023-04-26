@@ -94,30 +94,30 @@ padding: 50px 20px;
 
 <div class="row">
       <div class="mx-auto col-7">
-        <form action="register.php" method = "post">
+        <form action="register.php" method = "POST">
           <div class="form-row">
             <div class="col form-group">
               <label for="rUsername">Username</label>
-              <input type="text" class="form-control" id="rUsername" placeholder="juandelacruz" required>
+              <input type="text" class="form-control" name="rUsername" id="rUsername" placeholder="juandelacruz" required>
             </div>
             <div class="col form-group">
               <label for="rPassword">Password</label>
-              <input type="password" class="form-control" id="rPassword" placeholder="********" required>
+              <input type="password" class="form-control" name="rPassword" id="rPassword" placeholder="********" required>
             </div>
           </div>
           
           <div class="form-row">
             <div class="col form-group">
               <label for="firstname">Firstname</label>
-              <input type="text" class="form-control" id="firstname" placeholder="Juan" required>
+              <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Juan" required>
             </div>
             <div class="col form-group">
               <label for="middlename">Middle Name</label>
-              <input type="text" class="form-control" id="middlename" placeholder="Dalisay">
+              <input type="text" class="form-control" name="middlename" id="middlename" placeholder="Dalisay">
             </div>
             <div class="col form-group">
               <label for="lastname">Lastname</label>
-              <input type="text" class="form-control" id="lastname" placeholder="Dela Cruz" required>
+              <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Dela Cruz" required>
             </div>
           </div>
 
@@ -126,28 +126,28 @@ padding: 50px 20px;
               <label>Gender</label>
               <br>
               <div class="form-check-inline">
-                <input type="radio" class="form-check-input" id="gender" value="Male" required>
+                <input type="radio" class="form-check-input" name="gender" value="Male" required>
                 <label class="form-check-label" for="gender">Male</label>
               </div>
               <div class="form-check-inline">
-                <input type="radio" class="form-check-input" id="gender" value="Female">
+                <input type="radio" class="form-check-input" name="gender" value="Female">
                 <label class="form-check-label" for="gender">Female</label>
               </div>
             </div>
             <div class="col form-group">
               <label for="birthday">Birthday</label>
-              <input type="date" class="form-control" id="birthday" required>
+              <input type="date" class="form-control" name="birthday" required>
             </div>
             <div class="col form-group">
               <label for="birthplace">Birth Place</label>
-              <input type="text" class="form-control" id="birthplace" placeholder="Manila City" required>
+              <input type="text" class="form-control" name="birthplace" placeholder="Manila City" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="col form-group">
               <label for="occupation">Occupation</label>
-              <input type="text" class="form-control" id="occupation" placeholder="Job" required>
+              <input type="text" class="form-control" name="occupation" placeholder="Job" required>
             </div>
             <div class="col">
               <label>Civil Status</label>
@@ -157,19 +157,19 @@ padding: 50px 20px;
                 <label class="form-check-label" for="status">Single</label>
               </div>
               <div class="form-check-inline">
-                <input type="radio" class="form-check-input" id="status" value="Married">
+                <input type="radio" class="form-check-input" name="status" value="Married">
                 <label class="form-check-label" for="status">Married</label>
               </div>
               <div class="form-check-inline">
-                <input type="radio" class="form-check-input" id="status" value="Separated">
+                <input type="radio" class="form-check-input" name="status" value="Separated">
                 <label class="form-check-label" for="status">Separated</label>
               </div>
               <div class="form-check-inline">
-                <input type="radio" class="form-check-input" id="status" value="Divorced">
+                <input type="radio" class="form-check-input" name="status" value="Divorced">
                 <label class="form-check-label" for="status">Divorced</label>
               </div>
               <div class="form-check-inline">
-                <input type="radio" class="form-check-input" id="status" value="Widowed">
+                <input type="radio" class="form-check-input" name="status" value="Widowed">
                 <label class="form-check-label" for="status">Widowed</label>
               </div>
             </div>
@@ -178,21 +178,21 @@ padding: 50px 20px;
           <div class="form-row">
             <div class="col form-group">
               <label for="nationality">Nationality</label>
-              <input type="text" class="form-control" id="nationality" placeholder="Filipino" required>
+              <input type="text" class="form-control" name="nationality" placeholder="Filipino" required>
             </div>
             <div class="col form-group">
               <label for="phonenumber">Phone Number</label>
-              <input type="tel" class="form-control" id="phonenumber" placeholder="+639XXXXXXXXXX" pattern="+639[0-9]{10}" required>
+              <input type="tel" class="form-control" name="phonenumber" placeholder="+639XXXXXXXXXX" pattern="+639[0-9]{10}" required>
             </div>
             <div class="col form-group">
               <label for="emailadd">Email Address</label>
-              <input type="email" class="form-control" id="emailadd" placeholder="juandelacruz@gmail.com">
+              <input type="email" class="form-control" name="emailadd" placeholder="juandelacruz@gmail.com">
             </div>
           </div>
           <div class="form-row">
             <div class="col form-group">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="XXX Mabuhay St. Manila City" required>
+              <label for="streetadd">Address</label>
+              <input type="text" class="form-control" name="streetadd" placeholder="XXX Mabuhay St. Manila City" required>
             </div>
           </div>  
 
@@ -226,13 +226,13 @@ function sendEmailNotification($username, $email) {
   $mail->SMTPAuth   = true;
 
   $mail->Host       = 'smtp.gmail.com';
-  $mail->Username   = 'complaint.management.system.CMS@gmail.com'; //TODO: 
-  $mail->Password   = 'ygqsvauwxenigdyw';
+  $mail->Username   = 'complaintmanagementsystem123@gmail.com'; //TODO: 
+  $mail->Password   = 'duxwpgfeiptdbklz';
   
   $mail->SMTPSecure = "tls";
   $mail->Port       = 587;
 
-  $mail->setFrom('complaint.management.system.CMS@gmail.com', 'CMS');
+  $mail->setFrom('complaintmanagementsystem123@gmail.com', 'CMS');
   $mail->addAddress($email);
 
   $mail->isHTML(true);
@@ -247,8 +247,6 @@ function sendEmailNotification($username, $email) {
 
   $mail->Body = $email_template;
   $mail->send();
-
-  echo "Message has been sent.";
 }
 
 error_reporting(E_ERROR | E_PARSE);
