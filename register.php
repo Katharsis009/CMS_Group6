@@ -67,7 +67,8 @@ padding: 50px 20px;
 <link rel="icon" href ="LogoW.png" type = "image/x-icon"> <!-- BROWSER TAB ICON -->
 <title> Registration Page</title>
 <center>
-<img src="LogoW.png" alt="image"></center>
+<img src="LogoW.png" alt="image"> 
+<!-- </center> -->
 </head>
 
 <body id="myPage">
@@ -93,7 +94,7 @@ padding: 50px 20px;
 
 <div class="row">
       <div class="mx-auto col-7">
-        <form action="">
+        <form action="register.php" method = "post">
           <div class="form-row">
             <div class="col form-group">
               <label for="rUsername">Username</label>
@@ -193,25 +194,19 @@ padding: 50px 20px;
               <label for="address">Address</label>
               <input type="text" class="form-control" id="address" placeholder="XXX Mabuhay St. Manila City" required>
             </div>
-          </div>
-          <div class="form-row">
-            <br>
-            <button type="submit" class="btn btn-primary" style="background-color: #3e8e41;">Register</button>
-          </div>
+          </div>  
+
+          <input type="submit" name ="rSubmit" value="Register" onclick="return confirm('All information we collect shall be kept private and confidential by Barangay Philam Council and shall be used solely for legal purposes as mandated by the Data Privacy Act and other relevant laws. Information that are matters of public interest, however, may be disclosed to the public subject to applicable laws, rules, and regulations. Do you wish to continue registering?');"/>
+
         </form>
       </div>
     </div>
 
-<form action = "register.php" method="POST"> 
-<center>
 <a href = 'login.php'> <p> Have an Account? Login Here! </p></a></td> <!-- REDIRECT TO LOGIN -->
 <a href = 'index.php'> <p> Return to Home </p></a></td> <!-- REDIRECT TO Home Page -->  
 </center>
 <br>
 <br>
-<!-- START OF FORM -->
-
-</form> <!-- END OF FORM -->
 
 <!-- Start of PHP--> 
 <?php 
