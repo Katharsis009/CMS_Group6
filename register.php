@@ -63,6 +63,7 @@ padding: 50px 20px;
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="icon" href ="LogoW.png" type = "image/x-icon"> <!-- BROWSER TAB ICON -->
 <title> Registration Page</title>
 <center>
@@ -89,6 +90,123 @@ padding: 50px 20px;
     <a href="#" class="w3-bar-item w3-button">Profile</a>
   </div>
 <h1> Registration Page </h1> <!-- TITLE OF THE PAGE -->
+
+<div class="row">
+      <div class="mx-auto col-7">
+        <form action="">
+          <div class="form-row">
+            <div class="col form-group">
+              <label for="rUsername">Username</label>
+              <input type="text" class="form-control" id="rUsername" placeholder="juandelacruz" required>
+            </div>
+            <div class="col form-group">
+              <label for="rPassword">Password</label>
+              <input type="password" class="form-control" id="rPassword" placeholder="********" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="col form-group">
+              <label for="firstname">Firstname</label>
+              <input type="text" class="form-control" id="firstname" placeholder="Juan" required>
+            </div>
+            <div class="col form-group">
+              <label for="middlename">Middle Name</label>
+              <input type="text" class="form-control" id="middlename" placeholder="Dalisay">
+            </div>
+            <div class="col form-group">
+              <label for="lastname">Lastname</label>
+              <input type="text" class="form-control" id="lastname" placeholder="Dela Cruz" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col">
+              <label>Gender</label>
+              <br>
+              <div class="form-check-inline">
+                <input type="radio" class="form-check-input" id="gender" value="Male" required>
+                <label class="form-check-label" for="gender">Male</label>
+              </div>
+              <div class="form-check-inline">
+                <input type="radio" class="form-check-input" id="gender" value="Female">
+                <label class="form-check-label" for="gender">Female</label>
+              </div>
+            </div>
+            <div class="col form-group">
+              <label for="birthday">Birthday</label>
+              <input type="date" class="form-control" id="birthday" required>
+            </div>
+            <div class="col form-group">
+              <label for="birthplace">Birth Place</label>
+              <input type="text" class="form-control" id="birthplace" placeholder="Manila City" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col form-group">
+              <label for="occupation">Occupation</label>
+              <input type="text" class="form-control" id="occupation" placeholder="Job" required>
+            </div>
+            <div class="col">
+              <label>Civil Status</label>
+              <br>
+              <div class="form-check-inline">
+                <input type="radio" class="form-check-input" id="status" value="Single" required>
+                <label class="form-check-label" for="status">Single</label>
+              </div>
+              <div class="form-check-inline">
+                <input type="radio" class="form-check-input" id="status" value="Married">
+                <label class="form-check-label" for="status">Married</label>
+              </div>
+              <div class="form-check-inline">
+                <input type="radio" class="form-check-input" id="status" value="Separated">
+                <label class="form-check-label" for="status">Separated</label>
+              </div>
+              <div class="form-check-inline">
+                <input type="radio" class="form-check-input" id="status" value="Divorced">
+                <label class="form-check-label" for="status">Divorced</label>
+              </div>
+              <div class="form-check-inline">
+                <input type="radio" class="form-check-input" id="status" value="Widowed">
+                <label class="form-check-label" for="status">Widowed</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col form-group">
+              <label for="nationality">Nationality</label>
+              <input type="text" class="form-control" id="nationality" placeholder="Filipino" required>
+            </div>
+            <div class="col form-group">
+              <label for="phonenumber">Phone Number</label>
+              <input type="tel" class="form-control" id="phonenumber" placeholder="+639XXXXXXXXXX" pattern="+639[0-9]{10}" required>
+            </div>
+            <div class="col form-group">
+              <label for="emailadd">Email Address</label>
+              <input type="email" class="form-control" id="emailadd" placeholder="juandelacruz@gmail.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col form-group">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="XXX Mabuhay St. Manila City" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <br>
+            <button type="submit" class="btn btn-primary" style="background-color: #3e8e41;">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+
 <form action = "register.php" method="POST"> <!-- START OF FORM -->
 <center>
 
