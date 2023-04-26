@@ -16,7 +16,7 @@ header("location:login.php"); // redirects if user is not logged in
 <head>
 <title> Admin Page </title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,7 +24,7 @@ header("location:login.php"); // redirects if user is not logged in
 </head>
 
 <body>
-<div class="w3-top">
+<div class="w3-top" style = "position: static;">
 <div class="w3-bar w3-theme-d5 w3-left-align">
 <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
 <a href="index.php" class="w3-bar-item w3-button"><i class="fa fa-home w3-margin-right"></i>News</a>
@@ -46,25 +46,26 @@ header("location:login.php"); // redirects if user is not logged in
 <div class ="w3-center">
 <h2> Account Verification </h2>
 </div>
-
+<br />
+<br />
+<center>
 <form id="filterForm" action="admin.php" method="POST">
   <label for="filter">Filter</label>
   <input type = "radio" name = "filter" id="None" value="None" onclick="submitFilter()"/>None
   <input type = "radio" name = "filter" id="Approved" value="Approved" onclick="submitFilter()"/>Approved
   <input type = "radio" name = "filter" id="Rejected" value="Rejected" onclick="submitFilter()"/>Rejected
 </form>
-
+</center>
 <script>
   function submitFilter() {
     document.getElementById("filterForm").submit();
   }
 </script>
 
-<br><br>
 <!-- DISPLAY LIST OF CITIZEN USERS -->
-<table class="w3-table w3-striped w3-bordered w3-content w3-border">
+<table class="w3-table w3-striped w3-bordered w3-content w3-border" style = "overflow: auto; height: 450px; display: block;">
 
-<tr>
+<tr >
 <td>ID</td>
 <td>First Name</td>
 <td>Middle Name</td>
@@ -90,9 +91,10 @@ include('dbcon.php');
 <?php
 if(isset($_POST['filter'])) {
   $filter = $_POST['filter'];
-
+  echo "<center>";
   switch($filter) {
     case "None":
+
       echo "<h4>Current Filter: None</h4>";
       $query = "SELECT * from user where account_type = 'Citizen'"; //filter display to citizen account types only
       break;
@@ -104,8 +106,7 @@ if(isset($_POST['filter'])) {
       echo "<h4>Current Filter: Rejected</h4>";
       $query = "SELECT * from user where account_type = 'Citizen' and account_verification = 'Rejected'"; //filter display to citizen account types only
   }
-
-
+  echo "</center><br>";
 $results = mysqli_query($con, $query); //Query the users table
 
 
@@ -134,6 +135,7 @@ while($row = mysqli_fetch_array($results)){ //list all of citizen type users ?>
 } ?>
 
 </table>
+
 <br><br><br>
 <footer class="w3-container text-center w3-theme-d5">
 	
